@@ -1,0 +1,8 @@
+local oldK; oldK = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
+   args = {...}
+   if tostring(self) == "Fire" and args[2] == true then
+       args[2] = false
+       return oldK(self, unpack(args))
+   end
+   return oldK(self, ...)
+end))
