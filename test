@@ -1,8 +1,18 @@
-local oldK; oldK = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
-   args = {...}
-   if tostring(self) == "Fire" and args[2] == true then
-       args[2] = false
-       return oldK(self, unpack(args))
-   end
-   return oldK(self, ...)
-end))
+        getgenv().toggle = value
+        if getgenv().toggle == true then
+            for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
+                if v:IsA("Tool") and v:FindFirstChild("Stats") then
+                    task.spawn(function()
+                        while task.wait(5) do
+                            if v.Stats.ClipSize.Value ~= v.Stats.ClipSize.Original.Value then
+                                v.Stats.ClipSize.Value = math.huge
+                                v.Stats.ClipSize.Original.Value = math.huge
+                            end
+                         end
+                    end)
+                end
+            end
+        end
+        if getgenv().toggle == false then
+            print('off.')
+        end
