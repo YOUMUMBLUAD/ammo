@@ -1,5 +1,3 @@
-        getgenv().toggle = value
-        if getgenv().toggle == true then
             for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
                 if v:IsA("Tool") and v:FindFirstChild("Stats") then
                     task.spawn(function()
@@ -12,7 +10,3 @@
                     end)
                 end
             end
-        end
-        if getgenv().toggle == false then
-            print('off.')
-        end
